@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+</head>
+<body>
+    <h1>Data Display</h1>
+    <ul id="dataList">
+        {% for data in data_list %}
+            <li>{{ data.ip }} - {{ data.computer_name }} - {{ data.time }}</li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function sendData() {
+            fetch('/api/add_data', {
+                method: 'POST',
+            });
+        }
+
+        // Send data on page load
+        sendData();
+    </script>
+</body>
+</html>
